@@ -1,0 +1,19 @@
+{
+  "name": "friend-finder",
+  "version": "1.0.0",
+  "description": "This application will take in results of user's survey, then compare their answers with those from other users and then will display the name and picture of the user with the best overall match.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdnurul62/FriendFinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdnurul62/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/mdnurul62/FriendFinder#readme"
+}
