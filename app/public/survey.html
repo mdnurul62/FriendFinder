@@ -175,38 +175,38 @@
  <script type="text/javascript">
 
 
- function runSurveyQuery() {
-    var currentURL = window.location.origin;
-    console.log(currentURL);
-    $.ajax({url: currentURL + "/api/friends", method: "GET"})
-    .done(function(friendsData) {
-        console.log("-----------------------");
-        console.log("Url: " + currentURL + "/api/friends");
-        console.log("----------------------------");
-        console.log(friendsData);
-        console.log("------------------------------");
-        for(var i = 0; i < friendsData.length; i++) {
-            console.log(friendsData[i]);
-        }
-    })
+ // function runSurveyQuery() {
+ //    var currentURL = window.location.origin;
+ //    console.log(currentURL);
+ //    $.ajax({url: currentURL + "/api/friends", method: "GET"})
+ //    .done(function(friendsData) {
+ //        console.log("-----------------------");
+ //        console.log("Url: " + currentURL + "/api/friends");
+ //        console.log("----------------------------");
+ //        console.log(friendsData);
+ //        console.log("------------------------------");
+ //        for(var i = 0; i < friendsData.length; i++) {
+ //            console.log(friendsData[i]);
+ //        }
+ //    })
 
- }
- runSurveyQuery();
+ // }
+ // runSurveyQuery();
 
-var theUser;
+var newFriend;
 
-function User(name, pic, answers){
+function Friend(name, photo, answers){
     this.name = name;
-    this.photo = pic;
+    this.photo = photo;
     this.scores = answers;
 
 };
 
 
 
-var infoCatch = function(){
+var friendInfo = function(){
     var name = $('#name').val().trim();
-    var pic = $('#photo').val().trim();
+    var photo = $('#photo').val().trim();
     var answers = [];
 
     answers.push($('#q1').val().trim());
@@ -221,12 +221,12 @@ var infoCatch = function(){
     answers.push($('#q10').val().trim());
 
 
-    theUser = new User(name, pic, answers);
+    newFriend = new Friend(name, photo, answers);
 
      
     var currentUrl = window.location.origin;
 
-    $.post(currentUrl + '/api/friends', theUser, function(data){
+    $.post(currentUrl + '/api/friends', newFriend, function(data){
         console.log(data);
         $("#matchFriend").text(data.name);         
         $('#matchImg').attr("src", data.pic);
@@ -261,7 +261,7 @@ var infoCatch = function(){
     
     // If all required fields are filled.        
     if (validateForm() === true) {
-            infoCatch();
+            friendInfo();
     }
 });
 
